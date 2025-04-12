@@ -5,20 +5,20 @@
 
     <!-- 项目基本信息 -->
     <groupId>com.sunboat</groupId>
-    <artifactId>template</artifactId>
-    <version>1.0.0</version>
+    <artifactId>user</artifactId>
+    <version>1.0.1</version>
     <packaging>pom</packaging>
 
     <!-- 子模块列表 -->
     <modules>
-        <module>template-common-module</module>
-        <module>template-business-module</module>
+        <module>user-common-module</module>
+        <module>user-business-module</module>
     </modules>
 
     <!-- 项目属性配置 -->
     <properties>
         <!-- 项目内引用的 common-module 版本 -->
-        <template-common-module.version>1.0.0-SNAPSHOT</template-common-module.version>
+        <user-common-module.version>1.0.0-SNAPSHOT</user-common-module.version>
 
 
 
@@ -67,11 +67,6 @@
                 <version>3.5.3.2</version>
             </dependency>
 
-            <dependency>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-starter-web</artifactId>
-                <version>3.2.1</version>
-            </dependency>
 
             <!-- 用于构建 Web 应用程序，集成 Spring MVC、Tomcat 等 -->
             <dependency>
@@ -97,7 +92,7 @@
             <dependency>
                 <groupId>mysql</groupId>
                 <artifactId>mysql-connector-java</artifactId>
-                <version>8.0.33</version>
+                <version>8.0.26</version>
             </dependency>
 
             <!-- 安全相关依赖，为 Spring Boot 应用添加安全功能 -->
@@ -177,45 +172,25 @@
                 <artifactId>freemarker</artifactId>
                 <version>2.3.31</version>
             </dependency>
+            <dependency>
+                <groupId>com.alibaba.nacos</groupId>
+                <artifactId>nacos-client</artifactId>
+                <version>2.2.0</version>
+            </dependency>
+            <dependency>
+                <groupId>com.alibaba.boot</groupId>
+                <artifactId>nacos-config-spring-boot-starter</artifactId>
+                <version>0.2.11</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-starter-bootstrap</artifactId>
+                <version>3.1.5</version> <!-- 根据实际情况调整版本 -->
+            </dependency>
         </dependencies>
     </dependencyManagement>
 
-    <profiles>
-        <!-- 开发环境 -->
-        <profile>
-            <id>dev</id>
-            <properties>
-                <activatedProperties>dev</activatedProperties>
-            </properties>
-            <activation>
-                <activeByDefault>true</activeByDefault>
-            </activation>
-        </profile>
 
-        <!-- 测试环境 -->
-        <profile>
-            <id>test</id>
-            <properties>
-                <activatedProperties>test</activatedProperties>
-            </properties>
-        </profile>
-
-        <!-- 准生产环境 -->
-        <profile>
-            <id>pre</id>
-            <properties>
-                <activatedProperties>pre</activatedProperties>
-            </properties>
-        </profile>
-
-        <!-- 生产环境 -->
-        <profile>
-            <id>prod</id>
-            <properties>
-                <activatedProperties>prod</activatedProperties>
-            </properties>
-        </profile>
-    </profiles>
 
     <!-- 构建配置 -->
     <build>
