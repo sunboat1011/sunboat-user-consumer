@@ -1,4 +1,4 @@
-package com.sunboat.common.utils;
+package com.sunboat.business.utils;
 
 public class CommonUtils {
     public static String getMessage() {

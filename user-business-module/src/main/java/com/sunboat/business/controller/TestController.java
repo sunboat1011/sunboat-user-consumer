@@ -1,5 +1,7 @@
 package com.sunboat.business.controller;
 
+import com.sunboat.common.core.annotation.AntiShake;
+import com.sunboat.common.core.annotation.Idempotent;
 import com.sunboat.common.core.result.RtnResult;
 import com.sunboat.common.core.utils.RedisTemplateUtils;
 import com.sunboat.common.core.utils.RedissonUtils;
@@ -14,7 +16,7 @@ import java.util.List;
 import java.util.Map;
 
 @RestController
-@RequestMapping("/db")
+@RequestMapping("/test")
 public class TestController {
 
     @Autowired
@@ -32,7 +34,7 @@ public class TestController {
         return jdbcTemplate.queryForList("SELECT 1");
     }
 
-    @GetMapping("/testRedis")
+    @GetMapping("/connectRedis")
     public RtnResult<HashMap<String,Object>> testRedisTemplateUtils() {
         HashMap<String,Object> stringObjectHash = null;
         Integer testNum = redisTemplateUtils.getString("sunboat");
@@ -40,4 +42,40 @@ public class TestController {
         stringObjectHash.put("sunboat",testNum);
         return RtnResult.success(stringObjectHash);
     }
+
+    @GetMapping("/idempotent")
+    @Idempotent(
+            key = "#orderId",
+            expire = 60,
+            message = "该订单已处理，请勿重复回调"
+    )
+    public RtnResult<String> testIdempotent(String orderId,String userName) {
+
+        try {
+            // 让当前线程休眠10秒（10000毫秒）
+            Thread.sleep(10000);
+        } catch (InterruptedException e) {
+            // 处理中断异常
+            Thread.currentThread().interrupt(); // 恢复中断状态
+            e.printStackTrace();
+        }
+
+        return RtnResult.success("firstPass");
+    }
+
+    /**
+     * 确认支付接口（实现防抖）
+     * 防抖：防止3秒内重复提交（用户误操作）
+     */
+
+    @AntiShake(
+            timeout = 3,
+            key = "#orderId + '-' + #userId"
+    )
+    public RtnResult<Void> testAntiShake(String orderId,String userId) {
+
+        return RtnResult.success();
+    }
+
+
 }

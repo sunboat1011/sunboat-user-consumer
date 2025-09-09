@@ -1,6 +1,6 @@
 package com.sunboat.business;
 
-import com.sunboat.common.utils.CommonUtils;
+import com.sunboat.business.utils.CommonUtils;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
