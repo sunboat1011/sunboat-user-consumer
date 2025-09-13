@@ -18,7 +18,7 @@
     <!-- 项目属性配置 -->
     <properties>
         <!-- 项目内引用的 common-module 版本 -->
-        <user-common-module.version>1.0.8-SNAPSHOT</user-common-module.version>
+        <user-common-module.version>1.0.9-SNAPSHOT</user-common-module.version>
         <common-core.version>1.0.0-third-SNAPSHOT</common-core.version>
 
 
@@ -32,6 +32,11 @@
     <!-- 依赖管理 -->
     <dependencyManagement>
         <dependencies>
+            <dependency>
+                <groupId>com.alibaba.cloud</groupId>
+                <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
+                <version>2021.0.5.0</version>
+            </dependency>
             <dependency>
                 <groupId>com.sunboat</groupId>
                 <artifactId>user-common-module</artifactId>
@@ -199,6 +204,27 @@
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-starter-bootstrap</artifactId>
                 <version>3.1.5</version> <!-- 根据实际情况调整版本 -->
+            </dependency>
+
+            <!-- Spring Cloud Alibaba -->
+<!--            <dependency>-->
+<!--                <groupId>com.alibaba.cloud</groupId>-->
+<!--                <artifactId>spring-cloud-alibaba-dependencies</artifactId>-->
+<!--                <version>2021.1</version>-->
+<!--            </dependency>-->
+
+            <!-- Dubbo -->
+            <dependency>
+                <groupId>org.apache.dubbo</groupId>
+                <artifactId>dubbo-bom</artifactId>
+                <version>3.1.4</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.dubbo</groupId>
+                <artifactId>dubbo-spring-boot-starter</artifactId>
+                <version>3.1.4</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

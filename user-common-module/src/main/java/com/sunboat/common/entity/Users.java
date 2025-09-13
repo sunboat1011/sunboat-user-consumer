@@ -1,14 +1,12 @@
 package com.sunboat.common.entity;
 
-import com.baomidou.mybatisplus.annotation.IdType;
-import com.baomidou.mybatisplus.annotation.TableField;
-import com.baomidou.mybatisplus.annotation.TableId;
-import com.baomidou.mybatisplus.annotation.TableName;
+import com.baomidou.mybatisplus.annotation.*;
+import lombok.Getter;
+import lombok.Setter;
+
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
-import lombok.Getter;
-import lombok.Setter;
 
 /**
  * <p>
@@ -95,6 +93,7 @@ public class Users implements Serializable {
      * 逻辑删除标记，0 表示未删除，1 表示已删除
      */
     @TableField("is_deleted")
+    @TableLogic
     private Boolean isDeleted;
 
     /**
