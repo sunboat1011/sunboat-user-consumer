@@ -1,20 +1,21 @@
 package com.sunboat.business;
 
 import com.sunboat.business.utils.CommonUtils;
+import org.apache.dubbo.config.spring.context.annotation.DubboComponentScan;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
+//import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
 @MapperScan("com.sunboat.business.maper")
+@DubboComponentScan(basePackages = "com.sunboat.business.rpc")
 @ComponentScan(basePackages = {
         "com.sunboat.business", // user-business 自身的包
         "com.sunboat.common.core" // common-core 中 Bean 所在的根包
 })
-@EnableDiscoveryClient
 public class BusinessApplication implements CommandLineRunner {
 
 

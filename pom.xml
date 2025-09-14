@@ -26,17 +26,17 @@
         <!-- Java 版本 -->
         <java.version>1.8</java.version>
         <!-- Spring Boot 版本 -->
-        <spring-boot.version>2.7.15</spring-boot.version>
+        <spring-boot.version>2.7.18</spring-boot.version>
     </properties>
 
     <!-- 依赖管理 -->
     <dependencyManagement>
         <dependencies>
-            <dependency>
-                <groupId>com.alibaba.cloud</groupId>
-                <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
-                <version>2021.0.5.0</version>
-            </dependency>
+<!--            <dependency>-->
+<!--                <groupId>com.alibaba.cloud</groupId>-->
+<!--                <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>-->
+<!--                <version>2021.0.5.0</version>-->
+<!--            </dependency>-->
             <dependency>
                 <groupId>com.sunboat</groupId>
                 <artifactId>user-common-module</artifactId>
@@ -63,12 +63,12 @@
                 <scope>import</scope>
             </dependency>
             <!-- JUnit Jupiter API -->
-            <dependency>
-                <groupId>org.junit.jupiter</groupId>
-                <artifactId>junit-jupiter-api</artifactId>
-                <version>5.8.2</version>
-                <scope>test</scope>
-            </dependency>
+<!--            <dependency>-->
+<!--                <groupId>org.junit.jupiter</groupId>-->
+<!--                <artifactId>junit-jupiter-api</artifactId>-->
+<!--                <version>5.8.2</version>-->
+<!--                <scope>test</scope>-->
+<!--            </dependency>-->
             <!-- Spring Boot 测试依赖 -->
             <dependency>
                 <groupId>org.springframework.boot</groupId>
@@ -77,12 +77,12 @@
                 <scope>test</scope>
             </dependency>
             <!-- JUnit Jupiter Engine -->
-            <dependency>
-                <groupId>org.junit.jupiter</groupId>
-                <artifactId>junit-jupiter-engine</artifactId>
-                <version>5.8.2</version>
-                <scope>test</scope>
-            </dependency>
+<!--            <dependency>-->
+<!--                <groupId>org.junit.jupiter</groupId>-->
+<!--                <artifactId>junit-jupiter-engine</artifactId>-->
+<!--                <version>5.8.2</version>-->
+<!--                <scope>test</scope>-->
+<!--            </dependency>-->
 
             <dependency>
                 <groupId>com.baomidou</groupId>
@@ -95,7 +95,7 @@
             <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-starter-web</artifactId>
-                <version>3.2.1</version>
+                <version>${spring-boot.version}</version>
             </dependency>
 
             <!-- 数据库访问相关依赖 -->
@@ -103,14 +103,10 @@
             <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-starter-jdbc</artifactId>
-                <version>3.2.1</version>
+                <version>2.7.18</version>
             </dependency>
             <!-- Spring Data JPA，简化数据库访问操作 -->
-            <dependency>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-starter-data-jpa</artifactId>
-                <version>3.2.1</version>
-            </dependency>
+
             <!-- MySQL 数据库驱动 -->
             <dependency>
                 <groupId>mysql</groupId>
@@ -122,7 +118,7 @@
             <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-starter-security</artifactId>
-                <version>3.2.1</version>
+                <version>2.7.18</version>
             </dependency>
 
             <!-- 缓存相关依赖 -->
@@ -130,7 +126,7 @@
             <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-starter-cache</artifactId>
-                <version>3.2.1</version>
+                <version>2.7.18</version>
             </dependency>
 
 
@@ -139,7 +135,7 @@
             <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-starter-amqp</artifactId>
-                <version>3.2.1</version>
+                <version>2.7.18</version>
             </dependency>
             <!-- Spring Boot 集成 Kafka 消息队列 -->
 <!--            <dependency>-->
@@ -159,12 +155,13 @@
             <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-starter-logging</artifactId>
-                <version>3.2.1</version>
+                <version>2.7.18</version>
             </dependency>
 
             <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-starter-aop</artifactId>
+                <version>2.7.18</version>
             </dependency>
 
             <dependency>
@@ -214,18 +211,18 @@
 <!--            </dependency>-->
 
             <!-- Dubbo -->
-            <dependency>
-                <groupId>org.apache.dubbo</groupId>
-                <artifactId>dubbo-bom</artifactId>
-                <version>3.1.4</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-            <dependency>
-                <groupId>org.apache.dubbo</groupId>
-                <artifactId>dubbo-spring-boot-starter</artifactId>
-                <version>3.1.4</version>
-            </dependency>
+<!--            <dependency>-->
+<!--                <groupId>org.apache.dubbo</groupId>-->
+<!--                <artifactId>dubbo-bom</artifactId>-->
+<!--                <version>3.1.4</version>-->
+<!--                <type>pom</type>-->
+<!--                <scope>import</scope>-->
+<!--            </dependency>-->
+<!--            <dependency>-->
+<!--                <groupId>org.apache.dubbo</groupId>-->
+<!--                <artifactId>dubbo-spring-boot-starter</artifactId>-->
+<!--                <version>3.1.4</version>-->
+<!--            </dependency>-->
         </dependencies>
     </dependencyManagement>
 
